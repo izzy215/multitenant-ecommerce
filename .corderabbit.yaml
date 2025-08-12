@@ -1,0 +1,12 @@
+language: "ko-KR" # 한국어 설정
+reviews:
+  profile: "chill" # 부드러운 말투 설정 (선택사항)
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+auto_review:
+  enabled: true
+  drafts: false
+chat:
+  auto_reply: true
