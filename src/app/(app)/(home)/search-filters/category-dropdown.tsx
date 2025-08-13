@@ -53,7 +53,6 @@ export const CategoryDropdown = ({
                         "opacity-0 absolute -bottom-3 w-0 border-l-[10px] border-r-[10px] border-b-[10px] border-l-transparent border-r-transparent border-b-black left-1/2 -trans-x-1/2", isOpen && "opacity-100"
                     )}
                 >
-
                 </div>
             )}
         </div>
