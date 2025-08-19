@@ -1,7 +1,9 @@
+import { SessionRouter } from "@/modules/auth/server/procedure";
 import { createTRPCRouter } from "../init";
-import { categoriesRouter } from "@/modules/server/procedures";
+import { categoriesRouter } from "@/modules/categories/server/procedures";
 export const appRouter = createTRPCRouter({
   categories: categoriesRouter,
+  auth: SessionRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
