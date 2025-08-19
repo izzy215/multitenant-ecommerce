@@ -32,7 +32,7 @@ export const CategoryDropdown = ({
 
     const dropdownPosition = getDropdownPosition();
 
-    //Potentialiy imporove mobile
+    //Potentially improve mobile
     // const toggleDropdown = () => {
     //     if (category.subcategories?.docs?.length) {
     //         setIsOpen(!isOpen);
@@ -57,7 +57,7 @@ export const CategoryDropdown = ({
                 )}
                 >
                 <Link
-                        href={`/${category.slug === "all" ? "" : category.slug}`}>
+                    href={`/${category.slug === "all" ? "" : category.slug}`}>
                     {category.name}
                 </Link>
             </Button>
