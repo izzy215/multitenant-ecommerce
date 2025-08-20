@@ -57,7 +57,7 @@ export const SignInView = () => {
   }
 
   return (
-    <div className="grid grid-cols-l lg:grid-cols-5">
+    <div className="grid grid-cols-1 lg:grid-cols-5">
       <div className="bg-[#F4F4F4] h-screen w-full lg:col-span-3 overflow-y-auto">
         <Form {...form}>
           <form
@@ -66,7 +66,7 @@ export const SignInView = () => {
           >
             <div className="flex items-center justify-between mb-8">
               <Link href="/">
-              <span className={cn("text-2xl font-semibold", poppins)}>
+              <span className={cn("text-2xl font-semibold", poppins.className)}>
                 funroad
                 </span>
               </Link>
