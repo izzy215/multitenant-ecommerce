@@ -10,17 +10,6 @@ export const SessionRouter = createTRPCRouter({
 
     const session = await ctx.db.auth({ headers });
 
-    console.log("=== HEADERS DEBUG ===");
-    console.log("Type:", typeof headers);
-
-    if (headers instanceof Headers) {
-      console.log("All headers:");
-      for (const [key, value] of headers.entries()) {
-        console.log(`  ${key}: ${value}`);
-      }
-    } else {
-      console.log("Headers object:", headers);
-    }
     return session;
   }),
   logout: baseProcedure.mutation(async () => {
@@ -67,7 +56,7 @@ export const SessionRouter = createTRPCRouter({
     });
 
     if (!data.token) {
-      return new TRPCError({
+      throw new TRPCError({
         code: "UNAUTHORIZED",
         message: "failed to login",
       });
