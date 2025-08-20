@@ -1,8 +1,10 @@
 "use client"
 import { z } from "zod";
 import Link from "next/link";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
-
+import { useTRPC } from "@/trpc/client";
+import { useMutation } from "@tanstack/react-query"
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Input } from "@/components/ui/input";
@@ -20,7 +22,8 @@ import {
 import { registerSchema } from "../../schemas";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { useTRPC } from "@/trpc/client";
+import { useRouter } from "next/navigation";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,8 +31,17 @@ const poppins = Poppins({
 })
 
 export const SignUpView = () => {
+  const router = useRouter();
+
   const trpc = useTRPC();
-  const register = useMutation(trpc.auth.register.mutationOptions());
+  const register = useMutation(trpc.auth.register.mutationOptions({
+    onError: (error) => {
+      toast.error(error.message);
+    },
+    onSuccess: () => {
+      router.push("/");
+    }
+  }));
 
   const form = useForm<z.infer<typeof registerSchema>>({
     mode: "all",
@@ -42,7 +54,8 @@ export const SignUpView = () => {
   });
 
   const onSubmit = (values: z.infer<typeof registerSchema>) => {
-    console.log(values)
+    register.mutate(values);
+
   }
 
   const username = form.watch("username");
@@ -123,6 +136,7 @@ export const SignUpView = () => {
               )}
             />
             <Button
+              disabled={register.isPending}
               type="submit"
               size="lg"
               variant="elevated"
@@ -146,8 +160,4 @@ export const SignUpView = () => {
       </div>
     </div>
   )
-}
-
-function useMutation(arg0: any) {
-  throw new Error("Function not implemented.");
 }
