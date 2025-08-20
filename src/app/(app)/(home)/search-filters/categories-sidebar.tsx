@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 
 import { useTRPC } from "@/trpc/client";
 import { useQuery } from "@tanstack/react-query";
-import { CategoriesGetManyOutput } from "@/modules/server/types";
+import { CategoriesGetManyOutput } from "@/modules/categories/server/types";
 
 interface Props {
     open: boolean;

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ListFilterIcon } from "lucide-react";
 import { CategoriesSidebar } from "./categories-sidebar";
-import { CategoriesGetManyOutput } from "@/modules/server/types";
+import { CategoriesGetManyOutput } from "@/modules/categories/server/types";
 
 interface Props {
     data: CategoriesGetManyOutput;
