@@ -1,13 +1,13 @@
 "use client"
 //서버사이드렌더링이긴 하지만!!! 서버 컴포넌트가 아님 둘은 완전히 다른거에요
 import  Link  from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { Poppins } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-import { NavbarSidebar } from "./navbar-sidebar";
+import { NavbarSidebar } from "@/modules/home/ui/components/navbar-sidebar";
 import { useState } from "react";
 import { MenuIcon } from "lucide-react";
 
@@ -52,7 +52,7 @@ const navbarItems = [
 ]
 
 export const Navbar = () => {
-    const pathName = usePathname();
+    // const pathName = usePathname();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
